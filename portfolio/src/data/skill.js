@@ -1,0 +1,130 @@
+import {
+  FaHtml5,
+  FaCss3Alt,
+  FaJs,
+  FaNodeJs,
+  FaReact,
+  FaPython,
+  FaDatabase,
+  FaGitAlt,
+  FaBootstrap,
+  FaServer,
+} from "react-icons/fa";
+import {
+  SiNextdotjs,
+  SiExpress,
+  SiTailwindcss,
+  SiPostgresql,
+  SiVite,
+} from "react-icons/si";
+
+export const skills = [
+  {
+    id: 1,
+    name: "HTML",
+    icon: FaHtml5,
+    color: "text-orange-600",
+    level: "Expert",
+  },
+  {
+    id: 2,
+    name: "CSS",
+    icon: FaCss3Alt,
+    color: "text-blue-600",
+    level: "Expert",
+  },
+  {
+    id: 3,
+    name: "JavaScript",
+    icon: FaJs,
+    color: "text-yellow-600",
+    level: "Expert",
+  },
+  {
+    id: 4,
+    name: "React js",
+    icon: FaReact,
+    color: "text-cyan-600",
+    level: "Expert",
+  },
+  {
+    id: 5,
+    name: "Next.js",
+    icon: SiNextdotjs,
+    color: "text-white",
+    level: "Advanced",
+  },
+  {
+    id: 6,
+    name: "Tailwind CSS",
+    icon: SiTailwindcss,
+    color: "text-sky-400",
+    level: "Advanced",
+  },
+  {
+    id: 7,
+    name: "Node.js",
+    icon: FaNodeJs,
+    color: "text-green-600",
+    level: "Advanced",
+  },
+
+  {
+    id: 8,
+    name: "REST API",
+    icon: FaServer,
+    color: "text-green-500",
+    level: "Expert",
+  },
+  {
+    id: 9,
+    name: "Express.js",
+    icon: SiExpress,
+    color: "text-gray-300",
+    level: "Advanced",
+  },
+  {
+    id: 10,
+    name: "Python",
+    icon: FaPython,
+    color: "text-yellow-500",
+    level: "Intermediate",
+  },
+
+  {
+    id: 11,
+    name: "MySQL",
+    icon: FaDatabase,
+    color: "text-blue-500",
+    level: "Expert",
+  },
+  {
+    id: 12,
+    name: "PostgreSQL",
+    icon: SiPostgresql,
+    color: "text-blue-600",
+    level: "Intermediate",
+  },
+  {
+    id: 13,
+    name: "Responsive Design",
+    icon: FaBootstrap,
+    color: "text-purple-600",
+    level: "Expert",
+  },
+  {
+    id: 14,
+    name: "Git & GitHub",
+    icon: FaGitAlt,
+    color: "text-red-500",
+    level: "Advanced",
+  },
+
+  {
+    id: 15,
+    name: "Vite",
+    icon: SiVite,
+    color: "text-purple-500",
+    level: "Expert",
+  },
+];

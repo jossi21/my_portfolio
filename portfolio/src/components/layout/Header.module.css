@@ -1,0 +1,36 @@
+/* custom styles for header */
+.nav_links a,
+.mobile_menu a {
+  font-weight: bold;
+  color: #f6fdf9;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  cursor: pointer;
+  transition: transform 1s ease;
+  position: relative;
+  display: inline-block;
+
+  &:hover {
+    color: var(--color-hover);
+    transform: scale(1.2);
+  }
+}
+
+/* animation of navbar */
+.nav_links a::after,
+.mobile_menu a::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  height: 2px;
+  width: 100%;
+  left: 0;
+  background-color: var(--color-hover);
+  transition: transform 0.3s ease;
+  transform: scaleX(0);
+  transform-origin: center;
+}
+.nav_links a:hover::after,
+.mobile_menu a:hover::after {
+  transform: scale(1);
+}
