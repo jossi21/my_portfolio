@@ -18,6 +18,7 @@ app.use(
   })
 );
 app.use(express.json());
+app.use(cors({ origin: ['https://jossi-five.vercel.app', 'http://localhost:5173'], credentials: true }));
 
 // Routes here
 
@@ -52,4 +53,13 @@ app.get("/api/", async (req, res) => {
 
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}/api/`);
+});
+
+// Health check endpoint for Render
+app.get('/api/health', (req, res) => {
+  res.json({ 
+    status: 'healthy', 
+    message: 'Backend is running',
+    timestamp: new Date().toISOString()
+  });
 });
