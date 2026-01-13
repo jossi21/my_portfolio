@@ -2,7 +2,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { FaArrowLeft, FaHome } from "react-icons/fa";
-import aboutImage from "../../images/my_image/aboutMain1.png";
+import aboutImage from "../../../assets/images/my_image/aboutMain1.png";
 
 const DetailAbout = () => {
   return (

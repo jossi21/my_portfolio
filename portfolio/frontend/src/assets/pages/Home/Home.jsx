@@ -9,7 +9,7 @@ import {
   FaDownload,
 } from "react-icons/fa";
 import { PERSONAL_INFO } from "../../../utils/constants";
-import myImage from "../../images/my_image/homeMain1.png";
+import myImage from "../../../assets/images/my_image/homeMain1.png";
 import { Link } from "react-router-dom";
 
 const Home = () => {
