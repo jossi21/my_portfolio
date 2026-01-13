@@ -3,6 +3,7 @@ services:
     name: portfolio-backend
     env: node
     plan: free
+    rootDir: backend
     buildCommand: npm install && npx prisma generate
     startCommand: npm start
     healthCheckPath: /api/health
