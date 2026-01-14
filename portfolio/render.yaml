@@ -4,6 +4,18 @@ services:
     env: node
     region: oregon
     plan: free
-    buildCommand: cd backend && npm install && npx prisma generate
+    buildCommand: |
+      echo "Checking directory..."
+      pwd
+      ls -la
+      echo "Entering backend..."
+      cd backend
+      echo "Installing dependencies..."
+      npm install
+      echo "Generating Prisma client..."
+      npx prisma generate
     startCommand: cd backend && npm start
     healthCheckPath: /api/health
+    envVars:
+      - key: NODE_ENV
+        value: production
