@@ -1,43 +1,36 @@
 # render.yaml
-# Place this file in: Portfolio/portfolio/render.yaml
-
 version: "1"
 services:
   - type: web
-    name: backend # Change to your preferred name
+    name: jossi-backend
     env: node
-    region: oregon # Pick: oregon, frankfurt, singapore, ohio
+    region: oregon
     plan: free
-
-    # CRITICAL: This points to your backend folder
     rootDirectory: ./backend
-
-    # Build commands (run inside ./backend)
+    
+    # Build commands
     buildCommand: |
       npm install
       npx prisma generate
       npx prisma migrate deploy
-
-    # Start command: runs "node app.js"
+    
+    # Start command
     startCommand: npm start
-
-    # Health check - you'll need to add this route
+    
+    # Health check
     healthCheckPath: /api/health
-    healthCheckTimeout: 30
-
+    initialDelaySeconds: 60  # Give database time to start
+    
     autoDeploy: true
-
+    
     # Environment variables
     envVars:
       - key: NODE_ENV
         value: production
-      - key: PORT
-        value: 2127 # Render sets PORT automatically, but just in case
+      - key: FRONTEND_URL
+        value: https://jossi-five.vercel.app
 
 databases:
-  - name: portfolio-db
-    databaseName: portfoliodb
-    user: portfolioadmin
-    region: oregon
+  - name: jossi-db
     plan: free
-    ipAllowList: [] # Allow all IPs
+    region: oregon
