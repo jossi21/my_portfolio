@@ -1,86 +1,93 @@
 import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
-import { PrismaClient } from "@prisma/client";  
+import { PrismaClient } from "@prisma/client";
 
-dotenv.config();        
+dotenv.config();
 
 const prisma = new PrismaClient();
-const app = express();  
+const app = express();
 const PORT = process.env.PORT || 2127;
 
 // CORS Configuration for production
-const corsOptions = {   
+const allowedOrigins = [
+  "https://jossi-five.vercel.app",
+  "https://jossi-backend.onrender.com",
+  "http://localhost:5173",
+  "http://localhost:3000",
+];
+
+const corsOptions = {
   origin: function (origin, callback) {
-    // Allow requests with no origin (like mobile apps or curl)
+    // Allow requests with no origin
     if (!origin) return callback(null, true);
-    
-    const allowedOrigins = [
-      'https://jossi-five.vercel.app',
-      'http://localhost:5173',
-      'http://localhost:3000'
-    ];
-    
-    if (allowedOrigins.indexOf(origin) !== -1) {
+
+    // Allow all origins in development
+    if (process.env.NODE_ENV !== "production") {
+      return callback(null, true);
+    }
+
+    if (allowedOrigins.includes(origin)) {
       callback(null, true);
     } else {
-      callback(new Error('Not allowed by CORS'));
+      console.log("CORS blocked origin:", origin);
+      callback(new Error("Not allowed by CORS"));
     }
   },
-  credentials: true,    
+  credentials: true,
   optionsSuccessStatus: 200,
 };
 
 app.use(cors(corsOptions));
 app.use(express.json());
 
-// Health check endpoint (required by Render)   
-app.get("/api/health", async (req, res) => {    
+// Health check endpoint (required by Render)
+app.get("/api/health", async (req, res) => {
   try {
     await prisma.$queryRaw`SELECT 1`;
 
     res.status(200).json({
       status: "healthy",
-      timestamp: new Date().toISOString(),      
+      timestamp: new Date().toISOString(),
       service: "jossi-backend-api",
       database: "connected",
       frontend: process.env.FRONTEND_URL || "not set",
-      environment: process.env.NODE_ENV || "development"
+      environment: process.env.NODE_ENV || "development",
     });
-  } catch (error) {     
+  } catch (error) {
     res.status(500).json({
       status: "unhealthy",
       error: error.message,
-      timestamp: new Date().toISOString(),      
+      timestamp: new Date().toISOString(),
     });
   }
 });
 
-// POST /contact        
-app.post("/api/contact", async (req, res) => {  
-  const { name, email, message } = req.body;    
+// POST /contact
+app.post("/api/contact", async (req, res) => {
+  const { name, email, message } = req.body;
   if (!name || !email || !message) {
-    return res.status(400).json({ error: "All fields are required" });  
+    return res.status(400).json({ error: "All fields are required" });
   }
   try {
     const contact = await prisma.contact.create({
       data: { name, email, message },
     });
     res.status(201).json({ message: "Message sent successfully", contact });
-  } catch (error) {     
+  } catch (error) {
     console.error(error);
     res.status(500).json({ error: "Something went wrong" });
   }
 });
 
-// GET /contacts        
+// GET /contacts
 app.get("/api/", async (req, res) => {
   try {
     const contacts = await prisma.contact.findMany({
       orderBy: { createdAt: "desc" },
     });
-    res.json(contacts); 
-  } catch (error) {     
+    res.json(contacts);
+  } catch (error) {
     res.status(500).json({ error: "Something went wrong" });
   }
 });
@@ -93,14 +100,14 @@ app.get("/", (req, res) => {
     endpoints: {
       health: "GET /api/health",
       contact: "POST /api/contact",
-      contacts: "GET /api/"
+      contacts: "GET /api/",
     },
-    documentation: "https://jossi-five.vercel.app"
+    documentation: "https://jossi-five.vercel.app",
   });
 });
 
 app.listen(PORT, () => {
-  console.log(`Ì∫Ä Server running on port ${PORT}`);
-  console.log(`Ìºê Environment: ${process.env.NODE_ENV || 'development'}`);
-  console.log(`Ì¥ó Health check: http://localhost:${PORT}/api/health`);
-});       
+  console.log(`Server running on port: http://localhost:${PORT}`);
+  console.log(`Environment: ${process.env.NODE_ENV || "development"}`);
+  console.log(`Health check: http://localhost:${PORT}/api/health`);
+});
