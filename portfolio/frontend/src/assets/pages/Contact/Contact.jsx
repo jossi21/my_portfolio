@@ -77,7 +77,7 @@ const Contact = () => {
       // add time out
       const controller = new AbortController();
       const timeOut = setTimeout(() => controller.abort(), 10000);
-      const response = await fetch(`${import.meta.env.URL}/api/contact`, {
+      const response = await fetch(`${import.meta.env.URL}/contact`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
