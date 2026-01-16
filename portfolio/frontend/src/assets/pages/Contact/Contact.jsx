@@ -77,16 +77,13 @@ const Contact = () => {
       // add time out
       const controller = new AbortController();
       const timeOut = setTimeout(() => controller.abort(), 10000);
-      const response = await fetch(
-        `${import.meta.env.VITE_API_URL}/api/contact`,
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(formData),
-        }
-      );
+      const response = await fetch(`${import.meta.env.URL}/api/contact`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
 
       clearTimeout(timeOut);
       const data = await response.json();
@@ -109,7 +106,7 @@ const Contact = () => {
           "opacity-0",
           "transition-opacity",
           "duration-[1500ms]",
-          "ease-in-out"
+          "ease-in-out",
         );
 
         // Navigate after transition
