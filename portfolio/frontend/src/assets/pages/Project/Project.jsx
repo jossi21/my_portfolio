@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { projects } from "../../../data/projects";
-import { Link, Links } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { FaGithub } from "react-icons/fa";
 
 const Project = () => {
@@ -9,8 +9,8 @@ const Project = () => {
       <h1 className="text-5xl text-emerald-300 font-bold mb-10">Projects</h1>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 ">
         {projects.map((project) => (
-          <div key={project.id}>
-            <a to={project.demoUrl}>
+          <div key={project.id} className="cursor-pointer block">
+            <a href={project.demoUrl} target="block" rel="noopener noreferrer">
               <div
                 className="h-100 w-full rounded-xl bg-cover bg-center aspect-video relative overflow-hidden hover:shadow-[0_0_20px_#06b6d4] transition-all duration-300 hover:scale-110"
                 style={{ backgroundImage: `url(${project.image})` }}

@@ -37,7 +37,7 @@ export const projects = [
     category: "Full-stack",
     technology: ["React", "JavaScript", "Node.js", "CSS Modules"],
     metrics: "500+ npm downloads",
-    demoUrl: "https://jossi21.github.io/Netflix-clone-2025/",
+    demoUrl: "https://evangadi-forum-by-jossi.netlify.app/",
     githubUrl: "https://github.com/jossi21/Evangadi_Forum",
   },
   {
@@ -49,7 +49,7 @@ export const projects = [
     category: "Full-stack",
     technology: ["React", "JavaScript", "Node.js", "CSS Modules"],
     metrics: "500+ npm downloads",
-    demoUrl: "https://jossi21.github.io/Netflix-clone-2025/",
+    demoUrl: "https://jossi-garage.netlify.app/",
     githubUrl: "https://github.com/jossi21/jossi-garage",
   },
 ];
