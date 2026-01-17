@@ -4,6 +4,9 @@ import { useNavigate } from "react-router-dom";
 
 const Contact = () => {
   const nav = useNavigate();
+  // get the API URL
+  const API_URL =
+    import.meta.env.VITE_API_URL || "https://jossi-backend.onrender.com";
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -76,13 +79,14 @@ const Contact = () => {
     try {
       // add time out
       const controller = new AbortController();
-      const timeOut = setTimeout(() => controller.abort(), 10000);
-      const response = await fetch(`${import.meta.env.URL}/contact`, {
+      const timeOut = setTimeout(() => controller.abort(), 30000);
+      const response = await fetch(`${API_URL}/api/contact`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(formData),
+        signal: controller.signal,
       });
 
       clearTimeout(timeOut);

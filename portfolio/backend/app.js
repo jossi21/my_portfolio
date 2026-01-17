@@ -64,7 +64,7 @@ app.get("/api/health", async (req, res) => {
 });
 
 // POST /contact
-app.post("/contact", async (req, res) => {
+app.post("/api/contact", async (req, res) => {
   const { name, email, message } = req.body;
   if (!name || !email || !message) {
     return res.status(400).json({ error: "All fields are required" });
