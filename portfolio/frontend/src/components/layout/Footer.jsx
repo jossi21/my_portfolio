@@ -13,7 +13,7 @@ import { PERSONAL_INFO } from "../../utils/constants";
 
 const Footer = () => {
   return (
-    <div className="bg-header  h-[250px] bottom-0 left-0 right-0 ">
+    <div className="bg-header  h-[230px] bottom-0 left-0 right-0 ">
       <div>
         <div
           className={`grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-3 w-[70%] mx-auto gap-12  text-white/60 p-4 `}
