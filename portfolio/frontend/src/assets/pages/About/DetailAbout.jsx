@@ -9,8 +9,8 @@ const DetailAbout = () => {
     <div className="min-h-screen px-20 pt-20 pb-10">
       <h1 className="text-5xl text-emerald-300 font-bold ">About Me</h1>
       <div className="max-w-6xl mx-auto px-6">
-        <div className="flex flex-col items-center  md:flex-row md:gap-8 lg:gap-8">
-          <div className="md:w-1/3">
+        <div className="flex flex-col items-center  min-[768px]:flex-row md:gap-8 lg:gap-8">
+          <div className="max-[768px]:w-[70%]">
             <img
               src={aboutImage}
               alt="Yosef Azeneg"

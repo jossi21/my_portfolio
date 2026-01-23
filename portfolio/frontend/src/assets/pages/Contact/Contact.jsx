@@ -234,7 +234,9 @@ const Contact = () => {
           </div>
           <button
             type="submit"
-            className="bg-[var(--subtitle-button)] w-[150px] p-1.5 rounded-full items-center mb-5 mt-3 mx-auto cursor-pointer items-center hover:shadow-[0_0_20px_#06b6d4] font-bold "
+            className="bg-[var(--subtitle-button)] w-[150px] p-1.5 rounded-full items-center mb-5 mt-3 mx-auto cursor-pointer items-center hover:bg-blue-700 
+            hover:scale-105
+            font-bold "
           >
             {loading ? (
               <span className="flex items-center gap-2">

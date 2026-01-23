@@ -1,6 +1,5 @@
 import React from "react";
 import { skills } from "../../../data/skill";
-import { FaCss3, FaHtml5 } from "react-icons/fa";
 
 const Skills = () => {
   // Categorize skills by type (optional)
@@ -50,7 +49,7 @@ const Skills = () => {
   };
 
   return (
-    <section className="w-[89%] relative mx-auto py-10 min-h-screen overflow-auto">
+    <section className="w-[89%] relative mx-auto py-10 mb-25 min-h-screen overflow-auto">
       <h1 className="text-5xl text-emerald-300 font-bold mb-12 text-center">
         Skills
       </h1>
@@ -86,7 +85,7 @@ const Skills = () => {
                       </div>
                       <span
                         className={`text-xs py-1 px-1 rounded-full text-center border ${proficiencyColor(
-                          skill.level
+                          skill.level,
                         )}`}
                       >
                         {skill.level}

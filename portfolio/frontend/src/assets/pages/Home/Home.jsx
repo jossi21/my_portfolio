@@ -67,9 +67,9 @@ const Home = () => {
   return (
     <section
       id="home"
-      className={`flex gap-8 justify-center items-center mt-12`}
+      className={`flex flex-col min-[768px]:flex-row gap-8 justify-center items-center mt-12 w-[88%] mx-auto max-[768px]:mt-0`}
     >
-      <div className={``}>
+      <div className={`order-2 min-[768px]:order-1`}>
         <h1
           className={`text-6xl font-bold bg-gradient-to-r from-blue-600 to-green-500 bg-clip-text text-transparent my-4`}
         >
@@ -138,7 +138,7 @@ const Home = () => {
           <FaDownload className="group-hover:animate-bounce" /> Download CV
         </a>
       </div>
-      <div className={``}>
+      <div className={` order-1 min-[768px]:order-2 max-[768px]:w-[70%]`}>
         <img className={``} src={myImage} alt="" />
       </div>
     </section>

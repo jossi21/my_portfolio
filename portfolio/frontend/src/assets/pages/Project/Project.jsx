@@ -5,9 +5,9 @@ import { FaGithub } from "react-icons/fa";
 
 const Project = () => {
   return (
-    <section className="w-[89%] relative text-center mx-auto">
+    <section className="w-[89%] relative text-center mx-auto mb-25">
       <h1 className="text-5xl text-emerald-300 font-bold mb-10">Projects</h1>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 ">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-[768px]:gap-12">
         {projects.map((project) => (
           <div key={project.id} className="cursor-pointer block">
             <a href={project.demoUrl} target="block" rel="noopener noreferrer">

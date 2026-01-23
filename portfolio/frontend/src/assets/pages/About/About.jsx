@@ -1,11 +1,12 @@
 import React from "react";
 import aboutImage from "../../../assets/images/my_image/aboutMain1.png";
 import { Link } from "react-router-dom";
+import { FaArrowRight } from "react-icons/fa";
 
 const About = () => {
   return (
-    <section className="flex items-center justify-center gap-10 w-[88%] ">
-      <div>
+    <section className="flex flex-col min-[768px]:flex-row items-center justify-center w-[88%] mx-auto gap-8 ">
+      <div className="hidden  min-[768px]:block">
         <img src={aboutImage} alt="About Me" />
       </div>
       <div>
@@ -31,9 +32,13 @@ const About = () => {
           to="/about-details"
           smooth={true}
           duration={500}
-          className={`inline-block bg-[var(--subtitle-button)] text-white px-4 py-2 mt-3 rounded-3xl hover:bg-[var(--color-primary)] transition-all duration-300 cursor-pointer`}
+          className={`group inline-block bg-[var(--subtitle-button)] text-white px-4 py-2 mt-3 rounded-3xl hover:bg-blue-700 hover:scale-105 transition-all duration-300 cursor-pointer`}
         >
           Read More
+          <FaArrowRight
+            className="inline-block ml-2  group-hover:animate-pulse
+            "
+          />
         </Link>
       </div>
     </section>
